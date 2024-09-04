@@ -40,6 +40,8 @@ export default function Home() {
     const data_here: GradingData = result.data;
     setData(data_here);
     setLoading(false);
+    // const response = await fetch('http://api.scraperapi.com?api_key=55d0301e218465f346fbb2bebc026ddf&url=https://www.psacard.com/cert/88604728')
+    // console.log(response.json())
   }
 
   return (
