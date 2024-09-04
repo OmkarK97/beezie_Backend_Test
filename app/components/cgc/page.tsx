@@ -2,7 +2,7 @@ import React from 'react'
 
 interface CGC_Type {
     serial_number: number;
-    Barcode: string
+    Barcode: string;
     Year: number;
     Brand: string;
     Sports: string;
@@ -10,9 +10,10 @@ interface CGC_Type {
     Player: string;
     Variety: string;
     Grade: string;
-}
+  }  
 
-const Grading1 = ({serial_number, Barcode, Year, Brand, Sports, Card_number, Player, Variety, Grade}: CGC_Type) => {
+
+export default function Grading1 ({serial_number, Barcode, Year, Brand, Sports, Card_number, Player, Variety, Grade}: CGC_Type) {
     return (
         <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-5 lg:text-left">
             <div
@@ -116,5 +117,3 @@ const Grading1 = ({serial_number, Barcode, Year, Brand, Sports, Card_number, Pla
         </div>
     )
 }
-
-export default Grading1;

@@ -20,7 +20,7 @@ export default function Home() {
   }
 
   const [serialNumber, setSerialNumber] = useState();
-  const [data, setData] = useState<GradingData | undefined>();
+  const [data, setData] = useState<GradingData>();
   const [submit, setSubmit] = useState(false);
   const [loading, setLoading] = useState(false);
   const [selectedCompany, setSelectedCompany] = useState<string>('PSA');
