@@ -10,10 +10,10 @@ interface CGC_Type {
     Player: string;
     Variety: string;
     Grade: string;
-  }  
+}
 
 
-export default function Grading1 ({serial_number, Barcode, Year, Brand, Sports, Card_number, Player, Variety, Grade}: CGC_Type) {
+export default function Grading1({ serial_number, Barcode, Year, Brand, Sports, Card_number, Player, Variety, Grade }: CGC_Type) {
     return (
         <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-5 lg:text-left">
             <div
@@ -31,7 +31,7 @@ export default function Grading1 ({serial_number, Barcode, Year, Brand, Sports, 
                 className="group  rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
             >
                 <h2 className="mb-3 text-xl font-semibold">
-                Barcode :-
+                    Barcode :-
                 </h2>
                 <p className="m-0 max-w-[30ch] text-sm opacity-50">
                     {Barcode}

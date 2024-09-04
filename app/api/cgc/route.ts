@@ -11,12 +11,8 @@ export async function GET(req: Request) {
     url
   )}`;
 
-  const response = await axios.get(apiUrl);
-  const html = response.data;
-
   try {
-    // Fetch the page content through ScraperAPI
-    const response = await axios.get(url);
+    const response = await axios.get(apiUrl);
     const html = response.data;
 
     const $ = cheerio.load(html);

@@ -5,7 +5,7 @@ interface CardData {
     "Year": number;
     "Language": string;
     "Card_Set": string;
-    "Card_Number": number;
+    "Card_Number": string;
     "Variant_1": string;
     "Grade": string;
     "Grader_Notes": string;

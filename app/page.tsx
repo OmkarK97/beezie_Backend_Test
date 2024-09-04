@@ -27,7 +27,7 @@ export default function Home() {
     "Year": number;
     "Language": string;
     "Card Set": string;
-    "Card Number": number;
+    "Card Number": string;
     "Variant 1": string;
     "Grade": string;
     "Grader Notes": string;
@@ -42,10 +42,7 @@ export default function Home() {
 
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedCompany(event.target.value);
-    console.log(selectedCompany)
   };
-
-  console.log(data);
 
   const handleSubmit = async () => {
     if (selectedCompany === 'PSA') {
@@ -62,6 +59,7 @@ export default function Home() {
       const response = await fetch(`/api/cgc?serialNumber=${serialNumber}`);
       const result = await response.json();
       const data_here: CardData = result.data;
+      console.log(data_here)
       setCardData(data_here);
       setLoading(false);
     }
@@ -134,7 +132,7 @@ export default function Home() {
                   Year={cardData?.Year ?? 0}
                   Language={cardData?.Language ?? '###'}
                   Card_Set={cardData?.["Card Set"] ?? '###'}
-                  Card_Number={cardData?.["Card Number"] ?? 0}
+                  Card_Number={cardData?.["Card Number"] ?? '####'}
                   Variant_1={cardData?.["Variant 1"] ?? '###'}
                   Grade={cardData?.Grade ?? '###'}
                   Grader_Notes={cardData?.["Grader Notes"] ?? '###'}
