@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from "react";
-import Grading1 from "./components/cgc/page";
+import Grading1 from "./components/psa/page";
+import Grading2 from "./components/cgc/page";
 
 
 export default function Home() {
@@ -19,8 +20,22 @@ export default function Home() {
     Grade: string;
   }
 
+  interface CardData {
+    "Cert #": string;
+    "Card Name": string;
+    "Game": string;
+    "Year": number;
+    "Language": string;
+    "Card Set": string;
+    "Card Number": number;
+    "Variant 1": string;
+    "Grade": string;
+    "Grader Notes": string;
+  }
+
   const [serialNumber, setSerialNumber] = useState();
   const [data, setData] = useState<GradingData>();
+  const [cardData, setCardData] = useState<CardData>();
   const [submit, setSubmit] = useState(false);
   const [loading, setLoading] = useState(false);
   const [selectedCompany, setSelectedCompany] = useState<string>('PSA');
@@ -33,15 +48,23 @@ export default function Home() {
   console.log(data);
 
   const handleSubmit = async () => {
-    setSubmit(true);
-    setLoading(true);
-    const response = await fetch(`/api/psa?serialNumber=${serialNumber}`);
-    const result = await response.json();
-    const data_here: GradingData = result.data;
-    setData(data_here);
-    setLoading(false);
-    // const response = await fetch('http://api.scraperapi.com?api_key=55d0301e218465f346fbb2bebc026ddf&url=https://www.psacard.com/cert/88604728')
-    // console.log(response.json())
+    if (selectedCompany === 'PSA') {
+      setSubmit(true);
+      setLoading(true);
+      const response = await fetch(`/api/psa?serialNumber=${serialNumber}`);
+      const result = await response.json();
+      const data_here: GradingData = result.data;
+      setData(data_here);
+      setLoading(false);
+    } else {
+      setSubmit(true);
+      setLoading(true);
+      const response = await fetch(`/api/cgc?serialNumber=${serialNumber}`);
+      const result = await response.json();
+      const data_here: CardData = result.data;
+      setCardData(data_here);
+      setLoading(false);
+    }
   }
 
   return (
@@ -70,10 +93,10 @@ export default function Home() {
             value={selectedCompany}
             onChange={handleSelectChange}
           >
-            <option className="bg-transparent text-black" value="CGC">
+            <option className="bg-transparent text-black" value="PSA">
               PSA
             </option>
-            <option className="bg-transparent text-black" value="PSA">
+            <option className="bg-transparent text-black" value="CGC">
               CGC
             </option>
           </select>
@@ -85,21 +108,40 @@ export default function Home() {
 
       <div>
         {submit ? (
-          <div>
-            {!loading ? (
-              <Grading1
-                serial_number={data?.Certification_Number ?? 0}
-                Barcode={data?.["Reverse Cert Number / Barcode"] ?? '###'}
-                Year={data?.Year ?? 0}
-                Brand={data?.Brand ?? '#####'}
-                Sports={data?.Sport ?? '#####'}
-                Card_number={data?.["Card Number"] ?? '###'}
-                Player={data?.Player ?? '#####'}
-                Variety={data?.["Variety / Pedigree"] ?? '####'}
-                Grade={data?.Grade ?? '####'}
-              />
-            ) : ('Loading...')}
-          </div>
+          selectedCompany === 'PSA' ? (
+            <div>
+              {!loading ? (
+                <Grading1
+                  serial_number={data?.Certification_Number ?? 0}
+                  Barcode={data?.["Reverse Cert Number / Barcode"] ?? '###'}
+                  Year={data?.Year ?? 0}
+                  Brand={data?.Brand ?? '#####'}
+                  Sports={data?.Sport ?? '#####'}
+                  Card_number={data?.["Card Number"] ?? '###'}
+                  Player={data?.Player ?? '#####'}
+                  Variety={data?.["Variety / Pedigree"] ?? '####'}
+                  Grade={data?.Grade ?? '####'}
+                />
+              ) : ('Loading...')}
+            </div>
+          ) : (
+            <div>
+              {!loading ? (
+                <Grading2
+                  Cert={cardData?.["Cert #"] ?? '###'}
+                  Card_Name={cardData?.["Card Name"] ?? '###'}
+                  Game={cardData?.["Game"] ?? '###'}
+                  Year={cardData?.Year ?? 0}
+                  Language={cardData?.Language ?? '###'}
+                  Card_Set={cardData?.["Card Set"] ?? '###'}
+                  Card_Number={cardData?.["Card Number"] ?? 0}
+                  Variant_1={cardData?.["Variant 1"] ?? '###'}
+                  Grade={cardData?.Grade ?? '###'}
+                  Grader_Notes={cardData?.["Grader Notes"] ?? '###'}
+                />
+              ) : ('Loading...')}
+            </div>
+          )
         ) : ('Submit your details')}
       </div>
 

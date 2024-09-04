@@ -1,119 +1,89 @@
-import React from 'react'
+interface CardData {
+    "Cert": string;
+    "Card_Name": string;
+    "Game": string;
+    "Year": number;
+    "Language": string;
+    "Card_Set": string;
+    "Card_Number": number;
+    "Variant_1": string;
+    "Grade": string;
+    "Grader_Notes": string;
+}
 
-interface CGC_Type {
-    serial_number: number;
-    Barcode: string;
-    Year: number;
-    Brand: string;
-    Sports: string;
-    Card_number: number | string;
-    Player: string;
-    Variety: string;
-    Grade: string;
-  }  
+export default function Grading2({ Cert, Card_Name, Game, Year, Language, Card_Set, Card_Number, Variant_1, Grade, Grader_Notes }: CardData) {
 
-
-export default function Grading1 ({serial_number, Barcode, Year, Brand, Sports, Card_number, Player, Variety, Grade}: CGC_Type) {
     return (
         <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-5 lg:text-left">
             <div
-                className="group  rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+                className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
             >
-                <h2 className="mb-3 text-xl font-semibold">
-                    Certification Number :-
-                </h2>
-                <p className="m-0 max-w-[30ch] text-sm opacity-50">
-                    {serial_number}
-                </p>
+                <h2 className="mb-3 text-xl font-semibold">Certification Number :-</h2>
+                <p className="m-0 max-w-[30ch] text-sm opacity-50">{Cert}</p>
             </div>
 
             <div
-                className="group  rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+                className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
             >
-                <h2 className="mb-3 text-xl font-semibold">
-                Barcode :-
-                </h2>
-                <p className="m-0 max-w-[30ch] text-sm opacity-50">
-                    {Barcode}
-                </p>
+                <h2 className="mb-3 text-xl font-semibold">Card Name :-</h2>
+                <p className="m-0 max-w-[30ch] text-sm opacity-50">{Card_Name}</p>
             </div>
 
             <div
-                className="group  rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+                className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
             >
-                <h2 className="mb-3 text-xl font-semibold">
-                    Year :-
-                </h2>
-                <p className="m-0 max-w-[30ch] text-sm opacity-50">
-                    {Year}
-                </p>
+                <h2 className="mb-3 text-xl font-semibold">Game:-</h2>
+                <p className="m-0 max-w-[30ch] text-sm opacity-50">{Game}</p>
             </div>
 
             <div
-                className="group  rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+                className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
             >
-                <h2 className="mb-3 text-xl font-semibold">
-                    Brand :-
-                </h2>
-                <p className="m-0 max-w-[30ch] text-sm opacity-50">
-                    {Brand}
-                </p>
+                <h2 className="mb-3 text-xl font-semibold">Year:-</h2>
+                <p className="m-0 max-w-[30ch] text-sm opacity-50">{Year}</p>
             </div>
 
             <div
-                className="group  rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+                className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
             >
-                <h2 className="mb-3 text-xl font-semibold">
-                    Sports :-
-                </h2>
-                <p className="m-0 max-w-[30ch] text-sm opacity-50">
-                    {Sports}
-                </p>
+                <h2 className="mb-3 text-xl font-semibold">Language:-</h2>
+                <p className="m-0 max-w-[30ch] text-sm opacity-50">{Language}</p>
             </div>
 
             <div
-                className="group  rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+                className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
             >
-                <h2 className="mb-3 text-xl font-semibold">
-                    Card Number :-
-                </h2>
-                <p className="m-0 max-w-[30ch] text-sm opacity-50">
-                    {Card_number}
-                </p>
+                <h2 className="mb-3 text-xl font-semibold">Card Set:-</h2>
+                <p className="m-0 max-w-[30ch] text-sm opacity-50">{Card_Set}</p>
             </div>
 
             <div
-                className="group  rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+                className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
             >
-                <h2 className="mb-3 text-xl font-semibold">
-                    Player :-
-                </h2>
-                <p className="m-0 max-w-[30ch] text-sm opacity-50">
-                    {Player}
-                </p>
+                <h2 className="mb-3 text-xl font-semibold">Card Number:-</h2>
+                <p className="m-0 max-w-[30ch] text-sm opacity-50">{Card_Number}</p>
             </div>
 
             <div
-                className="group  rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+                className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
             >
-                <h2 className="mb-3 text-xl font-semibold">
-                    Variety :-
-                </h2>
-                <p className="m-0 max-w-[30ch] text-sm opacity-50">
-                    {Variety}
-                </p>
+                <h2 className="mb-3 text-xl font-semibold">Variant 1:-</h2>
+                <p className="m-0 max-w-[30ch] text-sm opacity-50">{Variant_1}</p>
             </div>
 
             <div
-                className="group  rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+                className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
             >
-                <h2 className="mb-3 text-xl font-semibold">
-                    Grade :-
-                </h2>
-                <p className="m-0 max-w-[30ch] text-sm opacity-50">
-                    {Grade}
-                </p>
+                <h2 className="mb-3 text-xl font-semibold">Grade:-</h2>
+                <p className="m-0 max-w-[30ch] text-sm opacity-50">{Grade[0]}</p>
+            </div>
+
+            <div
+                className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+            >
+                <h2 className="mb-3 text-xl font-semibold">Grader Notes:-</h2>
+                <p className="m-0 max-w-[30ch] text-sm opacity-50">{Grader_Notes}</p>
             </div>
         </div>
-    )
+    );
 }
