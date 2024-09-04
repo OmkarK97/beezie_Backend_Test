@@ -1,5 +1,6 @@
-import puppeteer from "puppeteer";
+
 import * as cheerio from "cheerio";
+import puppeteer from "puppeteer";
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
@@ -11,7 +12,6 @@ export async function GET(req: Request) {
     const browser = await puppeteer.launch({
       headless: true,
       args: [
-        "--no-sandbox",
         "--disable-setuid-sandbox",
         "--window-size=1,1",
         "--disable-background-networking",
